@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: monospace;
+  font-size: 2rem;
+  color: #fdfdfd;
+  }
+
+.text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  }
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+  }
+
+@keyframes blink {
+  50% { opacity: 0; }
+  }

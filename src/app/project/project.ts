@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { navBar } from "../navbar/navBar";
 
 @Component({
-    selector: 'education',
+    selector: 'project',
     templateUrl: '..//project/project.html',
     styleUrl: '..//project/project.scss',
-    standalone: true,
-    imports: [navBar]
+    standalone: true
 })
 
 export class project{

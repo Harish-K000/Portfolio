@@ -6,7 +6,7 @@ import { navBar } from "../navbar/navBar";
     templateUrl: '..//education/education.html',
     styleUrl: '..//education/education.scss',
     standalone: true,
-    imports: [navBar]
+    
 })
 
 export class education{

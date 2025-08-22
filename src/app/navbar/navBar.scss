@@ -1,52 +1,81 @@
+:root {
+  --navbar-w: 200px; /* set your navbar width once */
+}
+
 #mainNavBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 17vh;
-    padding: 0 5%;
+  position: fixed;     /* stick to left */
+  top: 0;
+  left: 0;
+  width: var(--navbar-w);
+  height: 100vh;       /* full height of screen */
+  z-index: 1000;
 
-    .logo {
-        img {
-            width: 100px;  // Controls logo size (adjust as needed)
-            height: auto;  // Maintains aspect ratio
-            object-fit: contain;
-        }
-    }
+  display: flex;
+  flex-direction: column; /* stack logo, links, contact vertically */
+  justify-content: flex-start;
+  align-items: center;
 
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-        font-size: 1.5rem;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        
-        li {
-            a {
-                color: black;
-                text-decoration: none;
-                text-decoration-color: white;
+  padding: 2rem 1rem;
+  background-color: #2b2a33e8;
+}
 
-                &:hover {
-                    color: rgb(255, 0, 0);
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
+#mainNavBar .logo img {
+  padding: 0.5rem;
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  background-color: blanchedalmond;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
 
-    .contact {
-        font-size: 1.5rem;
+#mainNavBar .nav-links {
+  display: flex;
+  flex-direction: column;  /* stack links vertically */
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
 
-        a {
-            color: black;
-            text-decoration: none;
+#mainNavBar .nav-links li a {
+  color: blanchedalmond;
+  padding: 10px 20px;
+  border-radius: 10rem;
+  text-decoration: none;
+}
 
-            &:hover {
-                color: rgb(255, 0, 0);
-                text-decoration: underline;
-            }
-        }
-    }
+#mainNavBar .nav-links li a:hover {
+  color:blanchedalmond;
+  background-color: #17795E;
+}
+
+#mainNavBar .contact {
+  margin-top: auto; /* push contact to bottom of sidebar */
+  font-size: 1.5rem;
+}
+
+#mainNavBar .contact a {
+  color: blanchedalmond;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 10rem;
+  text-decoration: none;
+}
+
+#mainNavBar .contact a:hover {
+  color:  blanchedalmond;
+  background-color: #17795E;
+}
+
+/* push main page content right so it doesn’t overlap */
+body, .page, main {
+  margin-left: var(--navbar-w);
+}
+
+.horizontalline{
+  border: 2px solid rgba(255, 235, 205, 0.5); width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
