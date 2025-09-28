@@ -3,25 +3,47 @@
 }
 
 #mainNavBar {
-  position: fixed;     /* stick to left */
+  position: fixed;
   top: 0;
   left: 0;
   width: var(--navbar-w);
-  height: 100vh;       /* full height of screen */
+  height: 100vh;
   z-index: 1000;
 
   display: flex;
-  flex-direction: column; /* stack logo, links, contact vertically */
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 
   padding: 2rem 1rem;
   background-color: #2b2a33e8;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  border-right: 2px solid rgba(255, 235, 205, 0.3);
+}
+
+/* Mobile navigation */
+@media (max-width: 767px) {
+  #mainNavBar {
+    width: 100vw;
+    transform: translateX(-100%);
+  }
+  
+  #mainNavBar.mobile-open {
+    transform: translateX(0);
+  }
+}
+
+/* Desktop navigation */
+@media (min-width: 768px) {
+  #mainNavBar {
+    transform: translateX(0);
+  }
 }
 
 #mainNavBar .logo img {
   padding: 0.5rem;
-  width: 100px;
+  width: 80px;
   height: auto;
   object-fit: contain;
   background-color: blanchedalmond;
@@ -29,53 +51,111 @@
   margin-bottom: 2rem;
 }
 
+@media (min-width: 768px) {
+  #mainNavBar .logo img {
+    width: 100px;
+  }
+}
+
 #mainNavBar .nav-links {
   display: flex;
-  flex-direction: column;  /* stack links vertically */
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1.5rem;
   list-style: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #mainNavBar .nav-links {
+    gap: 2rem;
+    font-size: 1.5rem;
+  }
 }
 
 #mainNavBar .nav-links li a {
   color: blanchedalmond;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 10rem;
   text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  #mainNavBar .nav-links li a {
+    padding: 10px 20px;
+  }
 }
 
 #mainNavBar .nav-links li a:hover {
-  color:blanchedalmond;
+  color: blanchedalmond;
   background-color: #17795E;
 }
 
+#mainNavBar .nav-links li a.active {
+  background-color: #17795E;
+  color: blanchedalmond;
+}
+
 #mainNavBar .contact {
-  margin-top: auto; /* push contact to bottom of sidebar */
-  font-size: 1.5rem;
+  margin-top: auto;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #mainNavBar .contact {
+    font-size: 1.5rem;
+  }
 }
 
 #mainNavBar .contact a {
   color: blanchedalmond;
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 10rem;
   text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  #mainNavBar .contact a {
+    padding: 10px 20px;
+  }
 }
 
 #mainNavBar .contact a:hover {
-  color:  blanchedalmond;
+  color: blanchedalmond;
   background-color: #17795E;
 }
 
-/* push main page content right so it doesn’t overlap */
-body, .page, main {
-  margin-left: var(--navbar-w);
+.horizontalline {
+  border: 2px solid rgba(255, 235, 205, 0.5);
+  width: 100%;
+  margin: 20px 0;
 }
 
-.horizontalline{
-  border: 2px solid rgba(255, 235, 205, 0.5); width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+/* Mobile close button */
+.mobile-close-btn {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: blanchedalmond;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .mobile-close-btn {
+    display: block;
+  }
 }

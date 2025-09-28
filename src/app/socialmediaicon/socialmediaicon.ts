@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Output  } from '@angular/core';
 
 @Component({
     selector: 'socialMediaIcon',
@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 })
 
 export class socialMediaIcon{
+    @Output() expandChange = new EventEmitter<boolean>();
+
+  onMouseEnter() {
+    this.expandChange.emit(true);   // tell parent it's expanded
+  }
+
+  onMouseLeave() {
+    this.expandChange.emit(false);  // tell parent it's collapsed
+  }
 }

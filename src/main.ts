@@ -1,22 +1,21 @@
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import {experience} from './app/experience/experience';
-import {contact} from './app/contact/contact';
-import {project} from './app/project/project';
-import { about } from './app/about/about';
-import { education } from './app/education/education';
+import { contact } from './app/contact/contact';
+import { resumePage } from './app/resume/resume';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter([
-      { path: 'about', component: about }, 
-      { path: 'education', component: education } ,
-      { path: '', redirectTo: '/about', pathMatch: 'full' } ,
-      { path: 'experience', component: experience } ,
-      { path: 'project', component: project } ,
-      { path: 'contact', component: contact } ,
-      { path: '**', redirectTo: '/about' } // No pathMatch needed for wildcard
+      { path: '', component: resumePage },
+      { path: 'intro', component: resumePage },
+      { path: 'about', component: resumePage },
+      { path: 'education', component: resumePage },
+      { path: 'experience', component: resumePage },
+      { path: 'project', component: resumePage },
+      { path: 'projects', component: resumePage },
+      { path: 'contact', component: contact },
+      { path: '**', redirectTo: '' }
     ], withComponentInputBinding())
   ]
 }).catch(err => console.error(err));

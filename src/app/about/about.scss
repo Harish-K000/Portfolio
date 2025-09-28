@@ -1,36 +1,99 @@
-.about-section {
+.aboutsection {
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: fantasy;
+  min-height: 100vh;
   display: flex;
-  gap: 2rem;                 /* space between photo & text */
-  padding: 2rem;
-}
-
-.container {
-  margin-top: 12rem;
-  max-width: 1000px;          /* so text doesn’t stretch too wide */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: justify;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .aboutsection {
+    padding: 2rem;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aboutsection {
+    font-size: 2rem;
+  }
+}
+
+.about_me_title {
+  margin: 0 auto 3rem auto;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  color: blanchedalmond;
+}
+
+@media (min-width: 480px) {
+  .about_me_title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .about_me_title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about_me_title {
+    font-size: 4rem;
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
   line-height: 1.6;
-  min-height: 100vh;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
 }
 
-.name{
- font-family:fantasy;
- font-size: 4rem;
- 
-}
-.hello{
-font-family:fantasy;
-font-size: 4rem;
-}
-.profession{
-font-family:fantasy;
-font-size: 3rem;
+@media (min-width: 768px) {
+  .about {
+    flex-direction: row;
+    gap: 4rem;
+    align-items: flex-start;
+  }
 }
 
-.about{
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-font-size: 2rem; 
-margin-left: 20px;
+.aboutcontent {
+  max-width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  order: 1;
 }
 
+@media (min-width: 768px) {
+  .aboutcontent {
+    max-width: 750px;
+    font-size: 1.5rem;
+    text-align: left;
+    order: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aboutcontent {
+    font-size: 2rem;
+  }
+}
+
+p {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}

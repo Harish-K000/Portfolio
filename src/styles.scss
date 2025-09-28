@@ -3,9 +3,73 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: #2b2a33;
-    color:blanchedalmond
+/* Global responsive design variables */
+:root {
+  --navbar-width-mobile: 0px;
+  --navbar-width-desktop: 200px;
+  --content-padding-mobile: 1rem;
+  --content-padding-desktop: 2rem;
+  --font-size-mobile: 0.875rem;
+  --font-size-desktop: 1rem;
+}
+
+/* Mobile-first responsive design */
+@media (min-width: 768px) {
+  :root {
+    --navbar-width-mobile: var(--navbar-width-desktop);
+    --content-padding-mobile: var(--content-padding-desktop);
+    --font-size-mobile: var(--font-size-desktop);
+  }
+}
+
+body {
+  background-color: #2b2a33;
+  color: blanchedalmond;
+  font-size: var(--font-size-mobile);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Responsive typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Responsive container */
+.container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--content-padding-mobile);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile navigation toggle */
+.mobile-nav-toggle {
+  display: block;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: #17795E;
+  color: blanchedalmond;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
 }
 
 

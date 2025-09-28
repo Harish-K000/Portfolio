@@ -1,21 +1,39 @@
 <nav id="mainNavBar">
+    <button class="mobile-close-btn" (click)="closeMobileNav()" aria-label="Close navigation">&times;</button>
+
     <div class="logo">
-        <img src="assets/logo.png" alt="ASK">
+        <ng-container *ngIf="isContactRoute(); else resumeLogo">
+            <a routerLink="/" (click)="closeMobileNav()" aria-label="Go to home">
+                <img src="assets/logo.png" alt="ASK">
+            </a>
+        </ng-container>
+        <ng-template #resumeLogo>
+            <a (click)="scrollToSection('intro')" [ngClass]="{'active': isActive('intro')}" aria-current="page">
+                <img src="assets/logo.png" alt="ASK">
+            </a>
+        </ng-template>
     </div>
-    <div>
+
+    <div *ngIf="!isContactRoute()">
         <ul class="nav-links font-serif font-semibold">
-            <li><a routerLink="/about">About</a></li>
-            <li><a routerLink="/education">Education</a></li>
-            <li><a routerLink="/experience">Experience</a></li> <!-- Changed to routerLink for consistency -->
-            <li><a routerLink="/project">Projects</a></li>
+            <li><a (click)="scrollToSection('about')" [ngClass]="{'active': isActive('about')}" aria-current="page">About</a></li>
+            <li><a (click)="scrollToSection('education')" [ngClass]="{'active': isActive('education')}" aria-current="page">Education</a></li>
+            <li><a (click)="scrollToSection('experience')" [ngClass]="{'active': isActive('experience')}" aria-current="page">Experience</a></li>
+            <li><a (click)="scrollToSection('projects')" [ngClass]="{'active': isActive('projects')}" aria-current="page">Projects</a></li>
         </ul>
     </div>
-    
+
     <hr class="horizontalline">
-    
-    <socialMediaIcon></socialMediaIcon>
-    <div class="contact font-serif font-semibold">
-        <a routerLink="/contact">Contact Me</a> <!-- Changed to routerLink for consistency -->
+
+    <socialMediaIcon (expandChange)="onExpandChange($event)"></socialMediaIcon>
+
+    <div class="contact font-serif font-semibold" *ngIf="!isContactRoute(); else homeLink">
+        <a routerLink="/contact" (click)="closeMobileNav()">Contact Me</a>
     </div>
-    
+
+    <ng-template #homeLink>
+        <div class="contact font-serif font-semibold">
+            <a routerLink="/" (click)="closeMobileNav()">Home</a>
+        </div>
+    </ng-template>
 </nav>

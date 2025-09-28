@@ -6,20 +6,17 @@ import{contact}from '../app/contact/contact'
 import{project}from '../app/project/project'
 import { NgModule } from '@angular/core';
 import { about } from './about/about';
-export const routes: Routes = [
-  
-  { path: 'about',component: about},
-  { path: '**', redirectTo: '/about', pathMatch: 'full' },
-  { path: 'education', component: education },
-  { path: 'experience', component: experience },
-  { path: 'project', component: project },
-  { path: 'contact', component: contact }
+import { intro } from './intro/intro';
 
+export const routes: Routes = [
+  { path: '', component: intro }, // Single route for all content
+  { path: 'intro', component: intro },
+  { path: '**', redirectTo: '/intro', pathMatch: 'full' },
   
 ];
 @NgModule({
   
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutes { }

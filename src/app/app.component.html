@@ -1,11 +1,14 @@
 <div class="page">
+  <!-- Mobile navigation toggle -->
+  <button class="mobile-nav-toggle" (click)="toggleMobileNav()" aria-label="Toggle navigation">
+    ?
+  </button>
 
-  <navbar class="fixed"></navbar>
+  <navbar class="nav-bar"
+          [class.mobile-open]="isMobileNavOpen"
+          (expanded)="isExpanded = $event"></navbar>
 
-  <div class="content ">
-    <about></about>
-    <education></education>
-    <experience></experience>
-    <project></project>
+  <div class="content" [class.shifted]="isExpanded" [class.mobile-nav-open]="isMobileNavOpen">
+    <router-outlet></router-outlet>
   </div>
 </div>

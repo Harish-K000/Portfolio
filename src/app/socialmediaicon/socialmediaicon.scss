@@ -1,55 +1,102 @@
 
-.social-links,.flex-center {
+.social-links, .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 .social-btn {
   cursor: pointer;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   font-family: 'Titillium Web', sans-serif;
   color: #333;
-  border-radius: 10px;
-  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-  background:blanchedalmond;
-  margin: 5px;
-  transition: 0.3s;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  background: blanchedalmond;
+  margin: 2px;
+  transition: all 0.3s ease;
   justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
-.social-btn svg {
-  height: 20px;
-  width: 20px;
+@media (min-width: 768px) {
+  .social-btn {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  }
+}
+
+.social-btn img {
+  height: 18px;
+  width: 18px;
+}
+
+@media (min-width: 768px) {
+  .social-btn img {
+    height: 20px;
+    width: 20px;
+  }
 }
 
 .social-btn span {
   width: 0px;
   overflow: hidden;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   text-align: center;
   margin-left: 5px;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .social-btn span {
+    font-size: 0.9rem;
+  }
 }
 
 .social-btn:hover {
-  width: 150px;
+  width: 120px;
   border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+  .social-btn:hover {
+    width: 150px;
+  }
 }
 
 .social-btn:hover span {
   padding: 2px;
-  width: 80px;
+  width: 60px;
 }
 
-#twitter svg {
-  fill: #1da1f2;
+@media (min-width: 768px) {
+  .social-btn:hover span {
+    width: 80px;
+  }
 }
 
-#linkedin svg {
-  fill: #0e76a8;
+#twitter img {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(193deg) brightness(102%) contrast(97%);
 }
 
-#github {
-  fill: #333;
+#linkedin img {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(99%) saturate(1456%) hue-rotate(183deg) brightness(95%) contrast(89%);
+}
+
+#github img {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
